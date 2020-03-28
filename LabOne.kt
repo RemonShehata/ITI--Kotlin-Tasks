@@ -1,7 +1,7 @@
 package com.iti.intake40.kotlindemo
 
 fun main() {
-    doTaskThree()
+    doTaskFourB()
 }
 
 fun doTaskOne() {
@@ -41,4 +41,43 @@ fun doTaskThree() {
     }
 
     println("$first $op $second = $result")
+}
+
+fun doTaskFourA() {
+    for (i in 0..5) {
+        for (j in 1..i) {
+            print("*")
+        }
+        println()
+    }
+
+    /*
+    for (i in 0..5) {
+        var j = 1
+        while (j < i) {
+            print("*")
+            j++
+        }
+        println()
+    }
+     */
+}
+
+fun doTaskFourB() {
+    val rows = 5
+    var k = 0
+
+    for (i in 1..rows) {
+        for (space in 1..rows - i) {
+            print("  ")
+        }
+
+        while (k != 2 * i - 1) {
+            print("* ")
+            k++
+        }
+
+        println()
+        k = 0
+    }
 }
