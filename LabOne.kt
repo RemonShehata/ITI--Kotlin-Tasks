@@ -1,7 +1,7 @@
 package com.iti.intake40.kotlindemo
 
 fun main() {
-    doTaskTwo()
+    doTaskThree()
 }
 
 fun doTaskOne() {
@@ -21,4 +21,24 @@ fun doTaskTwo() {
     for (number in numbers.filter { it <= 10 }) {
         print("$number  ")
     }
+}
+
+fun doTaskThree() {
+    print("enter the first operator: ")
+    val first: Int? = readLine()?.toIntOrNull() ?: 0
+    print("enter operand: ")
+    val op: Char? = readLine()?.singleOrNull()
+    print("enter the second operator: ")
+    val second: Int? = readLine()?.toIntOrNull() ?: 0
+
+    var result = when (op) {
+        '+' -> first?.plus(second!!)
+        '-' -> first?.minus(second!!)
+        '*' -> first?.times(second!!)
+        '/' -> first?.div(second!!)
+
+        else -> "wrong operation"
+    }
+
+    println("$first $op $second = $result")
 }
