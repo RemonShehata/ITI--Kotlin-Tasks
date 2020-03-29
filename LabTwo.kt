@@ -64,8 +64,10 @@ fun solveTaskTwo() {
 
 fun solveTaskThree() {
     var ip: String? = null
-    val ipRegex = Regex("^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.)" +
-            "{3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\$")
+    val ipRegex = Regex(
+        "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.)" +
+                "{3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\$"
+    )
 
     do {
         println("enter valid ip address")
@@ -73,5 +75,8 @@ fun solveTaskThree() {
     } while (!(ip!!.matches(ipRegex)))
 
     val octets = ip!!.split(".")
-    println(octets)
+
+    for (octet in octets) {
+        println(octet)
+    }
 }
