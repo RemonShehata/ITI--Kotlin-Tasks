@@ -1,7 +1,9 @@
 package com.iti.intake40.kotlindemo
 
+import java.security.InvalidParameterException
+
 fun main() {
-    solveTaskOne()
+    solveTaskTwo()
 }
 
 fun solveTaskOne() {
@@ -15,11 +17,11 @@ fun solveTaskOne() {
     //val users = data.map { it }
     val ages = data.flatMap { it.value }
     val names = data.map { it.key }
-    val validAges = ages.filter { it > 0}
+    val validAges = ages.filter { it > 0 }
     val invalidAges = ages.filter { it < 0 }
 
     var sum = 0
-    for (age in validAges){
+    for (age in validAges) {
         sum += age
     }
     val avg = sum / validAges.size
@@ -33,4 +35,29 @@ fun solveTaskOne() {
     println("valid ages: $validAges")
     println("average age = $avg")
     println("invalid ages: $invalidAges")
+}
+
+fun solveTaskTwo() {
+    print("enter the first operand: ")
+    val first: Int? = readLine()?.toIntOrNull()
+    print("enter operator: ")
+    val op: Char? = readLine()?.singleOrNull()
+    print("enter the second operand: ")
+    val second: Int? = readLine()?.toIntOrNull()
+
+    var result = if (first == null || second == null) {
+        throw InvalidParameterException("one/all  of the operators is/are invalid")
+    } else {
+        when (op) {
+            '+' -> first?.plus(second!!)
+            '-' -> first?.minus(second!!)
+            '*' -> first?.times(second!!)
+            '/' -> first?.div(second!!)
+
+            else -> throw
+            InvalidParameterException("the operand is invalid; only +, -, /,* are valid")
+        }
+    }
+
+    println("$first $op $second = $result")
 }
