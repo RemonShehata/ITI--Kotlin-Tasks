@@ -3,7 +3,7 @@ package com.iti.intake40.kotlindemo
 import java.security.InvalidParameterException
 
 fun main() {
-    solveTaskTwo()
+    solveTaskThree()
 }
 
 fun solveTaskOne() {
@@ -60,4 +60,18 @@ fun solveTaskTwo() {
     }
 
     println("$first $op $second = $result")
+}
+
+fun solveTaskThree() {
+    var ip: String? = null
+    val ipRegex = Regex("^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.)" +
+            "{3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\$")
+
+    do {
+        println("enter valid ip address")
+        ip = readLine()
+    } while (!(ip!!.matches(ipRegex)))
+
+    val octets = ip!!.split(".")
+    println(octets)
 }
