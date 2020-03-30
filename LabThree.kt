@@ -12,8 +12,8 @@ class Complex {
             1 -> "+i"
             -1 -> "-i"
             0 -> "i"
-            in (1..Int.MAX_VALUE) -> ("+${this.img}i")//this.img.toString() + "+i"
-            in (Int.MIN_VALUE until -2) -> ("${this.img}i")//this.img.toString() + "i"
+            in (1..Int.MAX_VALUE) -> ("+${this.img}i")
+            in (Int.MIN_VALUE until -2) -> ("${this.img}i")
             else -> ""
         }
 
@@ -39,7 +39,7 @@ fun main() {
     val c2 = Complex()
     with(c2) {
         real = -4
-        img = -9
+        img = -6
     }
 
     val sum = c1.doOperation(c2) { x: Complex, y: Complex ->
